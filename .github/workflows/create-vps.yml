@@ -29,4 +29,3 @@ jobs:
             echo "🟢 Running minute $i/360..."
             sleep 60
           done
-này là đoạn mã gì
