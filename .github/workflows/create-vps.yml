@@ -16,12 +16,12 @@ jobs:
 
       - name: 🔧 Start tmate session
         run: |
-          sudo apt update -y && sudo apt install -y tmate
+          sudo apt-get update -y
+          sudo apt-get install -y tmate
           tmate -S /tmp/tmate.sock new-session -d
           tmate -S /tmp/tmate.sock wait tmate-ready
-          SSH=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}')
-          echo "🔗 SSH Connection: $SSH"
-          echo "$SSH" > ssh_connection.txt
+          echo "SSH connection:"
+          tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}'
 
       - name: ⏳ Keep VPS alive
         run: |
